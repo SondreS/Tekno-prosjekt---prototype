@@ -1,0 +1,28 @@
+const int sensorPin = A0;
+const int valve = 7;
+
+int sensorValue = 0;
+
+void setup() {
+  pinMode(valve, OUTPUT);
+  pinMode(sensorPin, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  
+  sensorValue = analogRead(sensorPin);
+  Serial.println(sensorValue);
+  if (sensorValue < 200) {
+    
+  digitalWrite(valve,LOW);
+  
+  }
+
+  else{
+
+    digitalWrite(valve,HIGH);
+
+  }
+  delay(200);
+}
